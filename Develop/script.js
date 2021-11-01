@@ -19,14 +19,39 @@ $(document).ready(function(){
         //get the current time 
         var nowTime = moment().hour();
         //loop over class time block 
-        $("#time-block").each(function(){
-            var blockTime = parseInt($(this).attr("id").split("hour"))
+        $(".time-block").each(function(){
+            var blockTime = $(this).attr("id").split("hour")[1];
+            var hour = parseInt(blockTime);
+            console.log(hour);
+            console.log(nowTime);
+             //past 
+            if (hour < nowTime){
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+                $(this).addClass("past");
+            }
+            //present
+            if (hour === nowTime){
+                $(this).removeClass("past");
+                $(this).removeClass("future");
+                $(this).addClass("present");
+                
+            }
+            //future 
+            if (hour > nowTime){
+                $(this).removeClass("present");
+                $(this).removeClass("past");
+                $(this).addClass("future");
+                
+            }
+
+         
         })
+        
+        
     }
     //check the time and add the classes for background indicators
     // as the day goes by the List will update background colors 
-     
-
     // get items from local storage 
     $("#hour8 .description").val(localStorage.getItem("hour8"));
     $("#hour9 .description").val(localStorage.getItem("hour9"));
@@ -38,6 +63,8 @@ $(document).ready(function(){
     $("#hour15 .description").val(localStorage.getItem("hour15"));
     $("#hour16 .description").val(localStorage.getItem("hour16"));
     $("#hour17 .description").val(localStorage.getItem("hour17"));
+    
+    timeTracker();
 })
 
 
