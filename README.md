@@ -9,7 +9,8 @@ The purpose of this project was to create a Work Day scheduler for 10 hour work 
 - Javascript
 
 ## Website w Screen Shots 
-![]
+![Alt Image](./assets/ScreenShotScheduler.png)
 
+https://jlib047.github.io/WorkDayScheduler/
 ## Contribution 
 Made with love by Jason Libertelli 
